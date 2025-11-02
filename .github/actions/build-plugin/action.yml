@@ -45,10 +45,12 @@ runs:
 
     - name: Disable initramfs update
       if: ${{ runner.os == 'Linux' }}
+      shell: bash
       run: sudo sed -i 's/yes/no/g' /etc/initramfs-tools/update-initramfs.conf
       
     - name: Disable man-db update
       if: ${{ runner.os == 'Linux' }}
+      shell: bash
       run: sudo rm -f /var/lib/man-db/auto-update
 
     - name: Run Linux Build

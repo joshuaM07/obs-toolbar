@@ -52,7 +52,7 @@ bool obs_module_load(void)
 	// changeTitleBarColor(main_window->winId(), .5, .5, .5 , 1.0)
 #endif
 
-	obs_frontend_add_dock(dock);
+	obs_frontend_add_custom_qdock("obs-toolbar", dock);
 	return true;
 }
 
@@ -71,6 +71,18 @@ MODULE_EXPORT const char *obs_module_description(void)
 MODULE_EXPORT const char *obs_module_name(void)
 {
 	return obs_module_text("Toolbar");
+}
+
+OBS_MODULE_AUTHOR("Azi")
+
+MODULE_EXPORT const char *obs_get_module_id(void)
+{
+	return "obs-toolbar";
+}
+
+MODULE_EXPORT const char *obs_get_module_version(void)
+{
+	return PLUGIN_VERSION;
 }
 
 #define QT_UTF8(str) QString::fromUtf8(str)
